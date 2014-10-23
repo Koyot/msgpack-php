@@ -1,7 +1,7 @@
 MessagePack PHP functions
 =============
 
-The purpose of this project is to implement [MessagePack](http://msgpack.org/) serialization using only PHP. This might be useful for someone unable to install php-modules, or using [HipHop](https://github.com/facebook/hiphop-php) to compile PHP as C++.  
+The purpose of this project is to implement [MessagePack](http://msgpack.org/) serialization with PHP failover. This might be useful for someone unable to install php-modules, or using [HipHop](https://github.com/facebook/hiphop-php) to compile PHP as C++.
 
 Caveats
 -----

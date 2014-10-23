@@ -1,0 +1,12 @@
+{
+    "name": "bezier/msgpack-php",
+    "description": "MessagePack with pure PHP fail over",
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "CharStream": "src/"
+        }
+    }
+}
