@@ -1,7 +1,33 @@
-MessagePack PHP functions
+MessagePack PHP 
 =============
 
 The purpose of this project is to implement [MessagePack](http://msgpack.org/) serialization with PHP failover. This might be useful for someone unable to install php-modules, or using [HipHop](https://github.com/facebook/hiphop-php) to compile PHP as C++.
+
+
+Composer
+-----
+https://packagist.org/packages/bezier/msgpack-php
+
+
+Project
+-----
+Please see: http://msgpack.org/
+
+
+Example
+-----
+```
+  use CharStream;
+  
+  $hole = "Light"
+  $pack = msgpack_pack($hole);
+  
+  if ( msgpack_unpage($pack) === $hole ) {
+       echo "The hole is lit.";
+  }
+
+```
+
 
 Caveats
 -----
