@@ -139,6 +139,8 @@ namespace CharStream\MsgPack\PHP {
             $len = strlen($input);
             if ($len<32) {
                 return pack('Ca*',0xA0|$len,$input);
+            } else if ($len<=0xFF) {
+                return pack('CCa*', 0xD9,$len,$input);
             } else if ($len<=0xFFFF) {
                 return pack('Cna*',0xDA,$len,$input);
             } else if ($len<=0xFFFFFFFF) {
@@ -336,6 +338,13 @@ namespace CharStream\MsgPack\PHP {
                 return (($dat['p1']|$dat['p2'])+1)*-1;
 
             // String / Raw
+            case "\xD9": // raw 8
+                $d = substr($buffer,$pos,1);
+                $pos+=1;
+                $len = current(unpack('C',$d));
+                $d = substr($buffer,$pos,$len);
+                $pos+=$len;
+                return current(unpack('a'.$len,$d));
             case "\xDA": // raw 16
                 $d = substr($buffer,$pos,2);
                 $pos+=2;
